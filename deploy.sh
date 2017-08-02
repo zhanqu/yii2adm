@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/www-data/admin
+cd /home/www-data/yii2adm
 targetDir=`pwd`
 
 if [ ! -d "$targetDir/git-src" ];then

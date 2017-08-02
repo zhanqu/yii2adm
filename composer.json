@@ -1,8 +1,8 @@
 {
-    "name": "admin",
-    "description": "admin是一个基于Yii2的后台开源骨架，集成了用户和插件系统,使用主题功能,默认使用AdminLTE2的模板的主题,可以非常方便的开发新的功能。",
+    "name": "yii2adm",
+    "description": "yii2adm，集成了用户和插件系统,使用主题功能,默认使用AdminLTE2的模板的主题,可以非常方便的开发新的功能。",
     "keywords": ["yii2", "framework", "openadm","openadmin","admin","adminlte"],
-    "homepage": "http://www.openadm.com/",
+    "homepage": "http://www.yii2adm.com/",
     "type": "project",
     "license": "BSD-3-Clause",
     "minimum-stability": "dev",
