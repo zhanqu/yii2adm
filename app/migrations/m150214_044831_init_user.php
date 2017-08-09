@@ -84,14 +84,14 @@ class m150214_044831_init_user extends Migration
             ['User', 0, gmdate('Y-m-d H:i:s')],
         ]);
 
-        // insert admin user: neo/neo
+        // insert admin user: admin/admin
         $security = Yii::$app->security;
         $columns = ['id','role_id', 'email', 'username', 'password', 'status', 'created_at', 'access_token', 'auth_key'];
         $this->batchInsert('{{%user}}', $columns, [
             [
                 1,
                 1, // Role::ROLE_ADMIN
-                'admin@openadm.com',
+                'master@zhanqu.im',
                 'admin',
                 '$2y$13$Ry8EHO0bSoIt2/8TvHEeiOmZmy6TYd0tjMztO8tsJku1ltlGCBVXe', // admin
                 1, // User::STATUS_ACTIVE

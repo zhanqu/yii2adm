@@ -4,7 +4,7 @@ $params = array_merge(
     require(__DIR__ . '/params-local.php')
 );
 $config = [
-    'id' => 'openadm',
+    'id' => 'yii2adm',
     'basePath' => '@app',
     'vendorPath' => '@vendor',
     'runtimePath' => '@runtime',
@@ -148,9 +148,7 @@ $config = [
                 ],
             ],
         ],
-        'article' => [
-            'class' => 'app\modules\article\Module',
-        ],
+
     ],
     'params' => $params,
 ];
