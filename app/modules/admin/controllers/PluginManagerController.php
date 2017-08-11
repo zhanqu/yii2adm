@@ -10,7 +10,7 @@ class PluginManagerController extends Controller
 {
     public $defaultAction = 'local';
 
-    private $plugin_center_url = "http://api.openadm.com";
+    private $plugin_center_url = "#";
 
 	//plugin list
 	public function actionIndex()

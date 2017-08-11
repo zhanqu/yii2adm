@@ -1,7 +1,7 @@
 {
     "name": "yii2adm",
     "description": "yii2adm，集成了用户和插件系统,使用主题功能,默认使用AdminLTE2的模板的主题,可以非常方便的开发新的功能。",
-    "keywords": ["yii2", "framework", "openadm","openadmin","admin","adminlte"],
+    "keywords": ["yii2", "framework", "Yii2Adm","Yii2Admin","admin","adminlte"],
     "homepage": "http://www.yii2adm.com/",
     "type": "project",
     "license": "BSD-3-Clause",
@@ -27,7 +27,8 @@
       "trntv/yii2-file-kit": "*",
       "dmstr/yii2-adminlte-asset":"2.*",
       "kucha/ueditor": "*",
-      "intervention/image": "^2.3"
+      "intervention/image": "^2.3",
+        "yiisoft/yii2-mongodb": "^2.1@dev"
     },
     "require-dev": {
       "yiisoft/yii2-debug": "~2.0.0",

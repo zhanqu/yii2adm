@@ -6,7 +6,7 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'openadm-console',
+    'id' => 'Yii2Adm-console',
     'bootstrap' => ['log', 'gii'],
     'basePath' => '@app',
     'vendorPath' => '@vendor',

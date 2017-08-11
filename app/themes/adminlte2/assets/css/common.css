@@ -8,11 +8,11 @@ th,.label,.btn,.dropdown-menu>li>a{
     width: auto;
     min-width: 100px;
 }
-#openadm_content .nav-tabs > li{
+#Yii2Adm_content .nav-tabs > li{
     height:38px;
     margin-right:0;
 }
-#openadm_content .nav-tabs > li > a{
+#Yii2Adm_content .nav-tabs > li > a{
     border-radius: 0;
     border-top: none;
     border-bottom: none;

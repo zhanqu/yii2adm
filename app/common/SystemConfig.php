@@ -302,11 +302,11 @@ class SystemConfig
 	}
 
     /**
-     * openadm的版本号
-     * @return string OpenAdm 框架版本号
+     * Yii2Adm的版本号
+     * @return string Yii2Adm 框架版本号
      */
 	static public function getVersion()
     {
-        return "v0.2.1";
+        return "v0.1";
     }
 }
