@@ -14,9 +14,15 @@ $config = [
     'sourceLanguage' => 'en-US',
     'TimeZone' => 'PRC',
     'on beforeRequest' =>['app\common\SystemEvent','beforeRequest'],
-    'defaultRoute' => 'site/index',
+   // 'defaultRoute' => 'site/index',
     'components' => [
-
+        //redis
+        'redis' => [
+            'class' => 'yii\redis\Connection',
+            'hostname' => '127.0.0.1',
+            'port' => 6379,
+            'database' => 0,
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],

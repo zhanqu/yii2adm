@@ -46,7 +46,7 @@ class DefaultController extends Controller
                     [
                         'actions' => ['login', 'register', 'forgot', 'reset', 'login-email', 'login-callback'],
                         'allow' => true,
-                        'roles' => ['?','@'],
+                        'roles' => ['?', '@'],
                     ],
                 ],
             ],
@@ -55,8 +55,8 @@ class DefaultController extends Controller
 
     public function beforeAction($action)
     {
-        $loginedActions = ["profile","account"];
-        if(in_array($action->id,$loginedActions)){
+        $loginedActions = ["profile", "account"];
+        if (in_array($action->id, $loginedActions)) {
             $this->layout = '/main';
         }
         //要返回true 往下执行
@@ -233,7 +233,7 @@ class DefaultController extends Controller
                 $user->setRegisterAttributes($role::ROLE_USER)->save();
                 $profile->setUser($user->id)->save();
                 //添加权限分配
-                Yii::$app->getAuthManager()->assign(Yii::$app->getAuthManager()->getRole('User'),$user->id);
+                Yii::$app->getAuthManager()->assign(Yii::$app->getAuthManager()->getRole('User'), $user->id);
                 $this->afterRegister($user);
 
                 // set flash
@@ -242,7 +242,7 @@ class DefaultController extends Controller
                 $guestText = "";
                 if (Yii::$app->user->isGuest) {
                     $guestText = Yii::t("user", " - Please check your email to confirm your account");
-                }else{
+                } else {
                     //如果注册成功 跳转到loginRedirect页面
                     $this->redirect(Yii::$app->getModule('user')->loginRedirect);
                 }

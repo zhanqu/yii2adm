@@ -28,7 +28,7 @@
       "dmstr/yii2-adminlte-asset":"2.*",
       "kucha/ueditor": "*",
       "intervention/image": "^2.3",
-        "yiisoft/yii2-mongodb": "^2.1@dev"
+      "yiisoft/yii2-mongodb": "^2.1@dev"
     },
     "require-dev": {
       "yiisoft/yii2-debug": "~2.0.0",

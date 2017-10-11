@@ -9,9 +9,10 @@
   "license": "ISC",
   "dependencies": {
     "gulp": "*",
-	"gulp-uglify": "*",
-	"minimist": "*",
-	"gulp-rename": "*",
-	"gulp-css": "*"
+    "gulp-css": "*",
+    "gulp-rename": "*",
+    "gulp-uglify": "*",
+    "minimatch": "^3.0.4",
+    "minimist": "*"
   }
 }

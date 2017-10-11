@@ -21,7 +21,8 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-
+        echo 'site/index';exit;
         return $this->render('index');
     }
+
 }
