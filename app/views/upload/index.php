@@ -28,7 +28,7 @@
         <form method="post" action="">
 
             <div class="form-group " id="upload-wrapper" ><!--组件最外部需要有一个名为upload-wrapper的id，用以包装组件-->
-                <label>文件1：</label>
+                <label  class="col-md-2 control-label">1.分片上传：</label>
                 <div class="controls" >
                     <input type="file" id="file"  onchange="upload(this,'file').success(someCallback).upload()"/><!--需要有一个名为file的id，用以标识上传的文件，upload(file,group)中第二个参数为分组名，success方法可用于声名上传成功后的回调方法名-->
                     <div class="progress " style="height: 6px;margin-bottom: 2px;margin-top: 10px;width: 200px;">
@@ -39,6 +39,18 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                <label class="col-md-2 control-label">2.base64传图DEMO</label>
+                <div class="col-md-4">
+                    <div class="Upload-img" style="cursor:pointer;display:inline;"  onclick="$('#pic_b').click()">
+                        <img id="adImg_b" style="width:60px;height:60px;" src="/static/discount_default_img.png" />
+                    </div>
+                    <div style="display: none;">
+                        <input type="file" name="" id="pic_b" accept="image/jpeg, image/png" onchange="uploadPic(this,'adImg_b','staff_pay_url','item_b')">
+                    </div>
+                    <div id="item_b"></div>
+                </div>
+            </div>
 
             <button type="submit" class="btn btn-primary">点击提交</button>
         </form>
@@ -49,9 +61,10 @@
 
     </div>
 </div>
-<script src="/js/upload/spark-md5.min.js"></script><!--需要引入spark-md5.min.js-->
+<script src="/plugins/spark-md5.min.js"></script><!--需要引入spark-md5.min.js-->
 <script src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script><!--需要引入jquery.min.js-->
-<script src="/js/upload/blade-upload.js"></script><!--需要引入blade-upload.js-->
+<script src="/plugins/layer/layer.js"></script>
+<script src="/js/blade-upload.js"></script><!--需要引入blade-upload.js-->
 <script>
     // success(callback)中声名的回调方法需在此定义，参数callback可为任意名称，此方法将会在上传完成后被调用
     // 可使用this对象获得fileName,fileSize,uploadBaseName,uploadExt,subDir,group,savedPath等属性的值

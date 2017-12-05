@@ -121,7 +121,7 @@ var BladeUpload = {
 
         var _this = this;
 
-        $.post('/upload/preprocess', {
+        $.post('/uploads/preprocess', {
 
             file_name: _this.fileName,
 
@@ -201,7 +201,7 @@ var BladeUpload = {
 
         $.ajax({
 
-            url: "/upload/uploading?fileparam="+this.group,
+            url: "/uploads/uploading?fileparam="+this.group,
 
             type: "POST",
 
@@ -312,7 +312,74 @@ function upload(file, group) {
 }
 
 
+//以下为base64
 
+/**
+ * @name 上传图片
+ * @param object  file控件对象
+ * @param showid  图片预览区域
+ * @param item    隐藏域字段名
+ * @param itemContainer 隐藏域容器
+ * @returns {boolean}
+ */
+function uploadPic(object,showid,item,itemContainer)
+{
+    //检测浏览器是否支持FileReader对象
+    if (typeof FileReader == "undefined") {
+        layer.alert("您的浏览器不支持FileReader对象！");
+    }
+    var file = object.files[0];
+    if (file) {
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        var fileType = file.type.toLowerCase();
+        if (fileType != "jpg" && fileType != "gif" && fileType != "jpeg" && fileType != "image/jpeg" && fileType != "image/png" && fileType != "image/gif") {
+            layer.alert('请上传正确的图片类型', { icon: 2 });
+            return false;
+        }
+        if (file.size > 800 * 1024) {
+            layer.alert("请上传小于800KB的图片。", { icon: 2 });
+            return false;
+        }
+        reader.onload = function() {
+            picdata = reader.result;
+            var result = _ajaxpost('/upload/pic-upload',picdata);
+            if (result.success) {
+                $('#' + showid).attr('src', picdata);
+                $('#' + showid).parent().parent().parent().parent().css("overflow","hidden")
+                $('#' + showid).attr("height","120");
+                $('#'+itemContainer).html('<input type="hidden" value="'+result.path+'" name="'+item+'" id="put_id_'+itemContainer+'">');
+            } else {
+                layer.alert(result.message);
+                return false;
+            }
+        };
+    } else {
+        return false;
+    }
+}
+function _ajaxpost(url,data)
+{
+    $.ajax({
+        type:"post",
+        data:data,
+        url:url,
+        async: false,
+        beforeSend: function(XMLHttpRequest) {
+            layer.load();
+        },
+        success:function(data_json){
+            layer.closeAll('loading');
+            result = data_json;
+        },
+        error:function(){
+            layer.closeAll('loading');
+            layer.alert("网络不给力");
+            return false;
+        }
+    });
+    return result;
+}
 
 
 

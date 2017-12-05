@@ -46,3 +46,5 @@ phpunit.phar
 
 yii
 web/index.php
+
+storage/uploads/*

@@ -78,4 +78,31 @@ class Functions
         return $data;
     }
 
+
+    public static function base64ToImg($base64_image_content, $path)
+    {
+        $filePath = '';
+        //$root = $_SERVER['DOCUMENT_ROOT'].'/'.$path;
+        $root = Yii::getAlias('@webroot') . '/' . $path;
+        $folder = date('Ym',time()) . "/";
+
+        if (!is_dir($root . $folder)) {
+            if (!mkdir($root . $folder, 0777, true)) {
+                return ['status' => 0, 'message' => '创建目录失败'];
+                //die('创建目录失败...');
+            }
+        }
+        $pre = rand(999, 9999) . time();
+        //保存base64字符串为图片
+        //匹配出图片的格式
+        if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $base64_image_content, $result)) {
+            $type = $result[2];
+            $newName = $pre . ".{$type}";
+            $new_file = $root . $folder . $newName;
+            if (file_put_contents($new_file, base64_decode(str_replace($result[1], '', $base64_image_content)))) {
+                return $path . $folder . $newName;
+            }
+        }
+        return $filePath;
+    }
 }

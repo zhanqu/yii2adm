@@ -6,7 +6,7 @@ use yii;
 use yii\web\UploadedFile;
 class Receiver
 {
-    public $uploadHead;
+    public $uploadHeadFile;
     public $uploadPartialFile;
     public $chunkIndex;
     public $chunkTotalCount;
@@ -38,8 +38,8 @@ class Receiver
     {
         $this->uploadBaseName = $this->generateTempFileName();
         $this->uploadPartialFile = $this->getUploadPartialFilePath();
-        $this->uploadHead = $this->getUploadHeadPath();
-        if ( ! (touch($this->uploadPartialFile) && touch($this->uploadHead)) ) {
+        $this->uploadHeadFile = $this->getUploadHeadFilePath();
+        if ( ! (touch($this->uploadPartialFile) && touch($this->uploadHeadFile)) ) {
             return '无法创建文件';
         }
 
@@ -56,7 +56,7 @@ class Receiver
             return '写文件失败';
         }
         # 写入头文件内容
-        if ( @file_put_contents($this->uploadHead, $this->chunkIndex) === false ) {
+        if ( @file_put_contents($this->uploadHeadFile, $this->chunkIndex) === false ) {
             return '写头文件失败';
         }
 
@@ -70,9 +70,9 @@ class Receiver
         if ( RedisHandler::hashExists($savedFileHash) ) {
             $this->savedPath = RedisHandler::getFilePathByHash($savedFileHash);
         } else {
-            $this->savedPath = ConfigMapper::get('FILE_DIR') . DIRECTORY_SEPARATOR . ConfigMapper::get('FILE_SUB_DIR') . DIRECTORY_SEPARATOR . $savedFileHash . '.' . $this->uploadExt;
+            $this->savedPath = ConfigMapper::get('FILE_DIR') . '/' . ConfigMapper::get('FILE_SUB_DIR') . '/' . $savedFileHash . '.' . $this->uploadExt;
 
-            if ( ! @rename($this->uploadPartialFile,  Yii::getAlias('@storage').ConfigMapper::get('UPLOAD_PATH') . DIRECTORY_SEPARATOR . $this->savedPath) ) {
+            if ( ! @rename($this->uploadPartialFile,  Yii::getAlias('@webroot').ConfigMapper::get('UPLOAD_PATH') . '/' . $this->savedPath) ) {
                 return false;
             }
         }
@@ -86,17 +86,21 @@ class Receiver
             $subDir =  ConfigMapper::get('FILE_SUB_DIR');
         }
 
-        return  Yii::getAlias('@storage').ConfigMapper::get('UPLOAD_PATH') . DIRECTORY_SEPARATOR . ConfigMapper::get('FILE_DIR') . DIRECTORY_SEPARATOR . $subDir . DIRECTORY_SEPARATOR . $this->uploadBaseName . '.' . $this->uploadExt . '.part';
+        return  Yii::getAlias('@webroot').ConfigMapper::get('UPLOAD_PATH') . '/' . ConfigMapper::get('FILE_DIR') . '/' . $subDir . '/' . $this->uploadBaseName . '.' . $this->uploadExt . '.part';
     }
 
-    public function getUploadHeadPath()
+    public function getUploadHeadFilePath()
     {
-        return  Yii::getAlias('@storage').ConfigMapper::get('UPLOAD_PATH') . DIRECTORY_SEPARATOR . ConfigMapper::get('HEAD_DIR') . DIRECTORY_SEPARATOR . $this->uploadBaseName . '.head';
+        return  Yii::getAlias('@webroot').ConfigMapper::get('UPLOAD_PATH') . '/' . ConfigMapper::get('HEAD_DIR') . '/' . $this->uploadBaseName . '.head';
+    }
+    public function getUploadHeadFile()
+    {
+        return  Yii::getAlias('@webroot').ConfigMapper::get('UPLOAD_PATH') . '/' . ConfigMapper::get('HEAD_DIR');
     }
 
     public function getUploadFileSubFolderPath()
     {
-        return  Yii::getAlias('@storage').ConfigMapper::get('UPLOAD_PATH') . DIRECTORY_SEPARATOR . ConfigMapper::get('FILE_DIR') . DIRECTORY_SEPARATOR . ConfigMapper::get('FILE_SUB_DIR');
+        return  Yii::getAlias('@webroot').ConfigMapper::get('UPLOAD_PATH') . '/' . ConfigMapper::get('FILE_DIR') . '/' . ConfigMapper::get('FILE_SUB_DIR');
     }
 
     protected function generateSavedFileHash($filePath)

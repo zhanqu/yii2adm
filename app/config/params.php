@@ -5,7 +5,7 @@ return [
     //blade upload set
     "ENABLE_EXAMPLE_PAGE" => true, # 启用示例页面，访问域名/upload，生产环境下请将该选项设置为false
     "CHUNK_SIZE"          => 1 * 1000 * 1000, # 上传时的分块大小（B），默认为1M，越大传输越快，需要小于web服务器和php.ini中设置的上传限值
-    "UPLOAD_PATH"         => DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR . "blade", # 上传目录的本地物理路径
+    "UPLOAD_PATH"         => '/uploads/blade', # 上传目录的本地物理路径
     "HEAD_DIR"            => "_head", # 指针头文件目录的名称，建议保持默认
     "FILE_SUB_DIR"        => @date("Ym", time()), #资源文件目录的子目录生成规则，变量或常量均可
     "REDIS_KEY"           => "upload_file_hashes", #redis中hashes的key名称
