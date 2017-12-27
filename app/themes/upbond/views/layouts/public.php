@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
-use app\themes\adminlte2\ThemeAsset;
+use app\themes\upbond\ThemeAsset;
 ThemeAsset::register($this);
 ?>
 <?php $this->beginPage() ?>

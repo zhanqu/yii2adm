@@ -55,4 +55,9 @@ class PluginBaseController extends Controller
 		$className = get_called_class();
 		$this->pluginName = str_replace("Controller", "", $className);
 	}
+    public function renderJson($params = array())
+    {
+        Yii::$app->response->format = yii\web\Response::FORMAT_JSON;
+        return $params;
+    }
 }

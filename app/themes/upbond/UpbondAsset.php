@@ -1,9 +1,14 @@
 <?php
-namespace app\themes\adminlte2;
+/**
+ * Created by PhpStorm.
+ * User: yappy
+ * Date: 17-12-21
+ * Time: 下午4:42
+ */
 
+namespace app\themes\upbond;
 use yii\base\Exception;
 use dmstr\web\AdminLteAsset as BaseAdminLteAsset;
-
 /**
  * AdminLte AssetBundle
  * @since 0.1
@@ -24,13 +29,11 @@ class UpbondAsset extends BaseAdminLteAsset
         'yii\bootstrap\BootstrapAsset',
         'yii\bootstrap\BootstrapPluginAsset',
     ];
-
     /**
      * @var string|bool Choose skin color, eg. `'skin-blue'` or set `false` to disable skin loading
      * @see https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#layout
      */
     public $skin = null;
-
     /**
      * @inheritdoc
      */

@@ -343,7 +343,7 @@ function uploadPic(object,showid,item,itemContainer)
         }
         reader.onload = function() {
             picdata = reader.result;
-            var result = _ajaxpost('/upload/pic-upload',picdata);
+            var result = _ajaxpost('/uploads/pic-upload',picdata);
             if (result.success) {
                 $('#' + showid).attr('src', picdata);
                 $('#' + showid).parent().parent().parent().parent().css("overflow","hidden")

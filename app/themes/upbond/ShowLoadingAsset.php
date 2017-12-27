@@ -5,7 +5,7 @@
  * @license MIT
  */
 
-namespace app\themes\adminlte2;
+namespace app\themes\upbond;
 
 use Yii;
 use yii\web\AssetBundle;

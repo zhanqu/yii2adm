@@ -11,9 +11,9 @@ ThemeAsset::register($this);
     <head>
         <meta charset="<?= Yii::$app->charset ?>">
         <title><?= Html::encode($this->title) ?></title>
-        <meta name="description" content="Yii2Adm是一个基于Yii2的后台开源骨架，集成了用户和插件系统,使用主题功能,默认使用AdminLTE2的模板的主题,可以非常方便的开发新的功能。">
-        <meta name="author" content="master@zhanqu.im">
-        <meta name="keyword" content="admin,yii2,adminlte,rbac">
+        <meta name="description" content="YiiADM是一个基于Yii2的后台开源骨架，集成了用户和插件系统,使用主题功能,默认使用AdminLTE2的模板的主题,可以非常方便的开发新的功能。">
+        <meta name="author" content="fqbqing@gmail.com">
+        <meta name="keyword" content="YiiADMin,admin,yii2,adminlte,rbac">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">

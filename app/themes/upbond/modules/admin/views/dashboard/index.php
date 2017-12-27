@@ -2,7 +2,7 @@
 use yii\helpers\Json;
 use yii\helpers\Html;
 use yii\helpers\Url;
-use app\themes\adminlte2\ThemeAsset;
+use app\themes\upbond\ThemeAsset;
 ThemeAsset::register($this);
 //将菜单json数据注册到开头js
 $this->registerJs( "var OA_Menus=". Json::encode($menus),\yii\web\View::POS_HEAD);

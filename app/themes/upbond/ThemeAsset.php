@@ -1,9 +1,9 @@
 <?php
 /**
- * 主题 Adminlte2
+ * 主题 upbond
  */
 
-namespace app\themes\adminlte2;
+namespace app\themes\upbond;
 use yii\web\AssetBundle;
 
 /**
@@ -12,19 +12,18 @@ use yii\web\AssetBundle;
 class ThemeAsset extends AssetBundle
 {
 
-    const  name = 'adminlte2';
-    const  themeId = 'adminlte2';
+    const  name = 'upbond';
+    const  themeId = 'upbond';
 
     public $sourcePath = '@app/themes/'.self::themeId.'/assets';
     public $css = [
-        'css/common.css'
+
     ];
     public $js = [
-        'js/jquery.contextmenu.r2.js',
-        'js/common.js'
+
     ];
     public $jsOptions = ['position' => \yii\web\View::POS_END];
     public $depends = [
-        'app\themes\adminlte2\AdminltePluginsAsset'
+        'app\themes\upbond\AdminltePluginsAsset'
     ];
 }

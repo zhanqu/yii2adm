@@ -69,7 +69,7 @@ function oa_build_left_menu(el) {
             $('.sidebar').html(sidebar_html);
         }
     }
-    initYii2AdmMenusEvents();
+    initOpenAdmMenusEvents();
     return false;
 }
 
@@ -181,7 +181,7 @@ function oa_tab_iframe_height(id,height) {
     return true;
 }
 
-function initYii2AdmMenusEvents() {
+function initOpenAdmMenusEvents() {
 
     $('.openlink').each(function (index,el) {
         $(el).click(function (e) {

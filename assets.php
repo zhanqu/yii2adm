@@ -24,12 +24,12 @@ return [
         'yii\bootstrap\BootstrapAsset',
         'yii\bootstrap\BootstrapPluginAsset',
         'rmrevin\yii\fontawesome\AssetBundle',
-        'app\themes\adminlte2\AdminltePluginsAsset',
+        'app\themes\upbond\UpbondPluginsAsset',  //theme
         'app\plugins\menu\assets\MenuAsset',
-        'app\themes\adminlte2\ThemeAsset',
+        'app\themes\upbond\ThemeAsset',  //theme
         'nirvana\showloading\ShowLoadingAsset',
-        'app\themes\adminlte2\AdminLteAsset',
-        'app\themes\adminlte2\ShowLoadingAsset',
+        'app\themes\upbond\UpbondAsset',  //theme
+        'app\themes\upbond\ShowLoadingAsset',  //theme
         'lo\modules\noty\assets\NotyAsset'
     ],
     'targets' => [
@@ -55,12 +55,12 @@ return [
             'depends' => [
                 'yii\web\YiiAsset',
                 'yii\jui\JuiAsset',
-                'app\themes\adminlte2\AdminltePluginsAsset',
+                'app\themes\upbond\UpbondPluginsAsset',
                 'app\plugins\menu\assets\MenuAsset',
-                'app\themes\adminlte2\ThemeAsset',
+                'app\themes\upbond\ThemeAsset',
                 'nirvana\showloading\ShowLoadingAsset',
-                'app\themes\adminlte2\AdminLteAsset',
-                'app\themes\adminlte2\ShowLoadingAsset',
+                'app\themes\upbond\UpbondAsset',
+                'app\themes\upbond\ShowLoadingAsset',
                 'lo\modules\noty\assets\NotyAsset'
             ],
         ],

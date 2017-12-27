@@ -7,7 +7,7 @@
     <!--[if IE 9]> <html lang="<?= Yii::$app->language ?>" class="ie8"> <![endif]-->
     <!--[if !IE]><!--> <html lang="<?= Yii::$app->language ?>"> <!--<![endif]-->
 <head>
-    <title>Yii2Adm</title>
+    <title>OpenADM</title>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
